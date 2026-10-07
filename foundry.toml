@@ -1,0 +1,18 @@
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+libs = ["lib"]
+solc = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1
+# Solidity 0.8.26's default Yul sequence, omitting FunctionSpecializer (F).
+# Keeps runtime compact and avoids event-topic data that the launch opcode scan
+# would interpret as CALLCODE. The exact scan is covered by a regression test.
+optimizer_details = { yulDetails = { optimizerSteps = "dhfoDgvulfnTUtnIfxa[r]EscLMVcul[j]Trpeulxa[r]cLgvifMCTUca[r]LSsTOtfDnca[r]IulcscCTUtgvifMx[scCTUt]TOntnfDIulx[scCTUt]TOntnfDIulgvifMjmul[jul]VcTOculjmul" } }
+via_ir = true
+bytecode_hash = "none"
+
+[profile.default.fuzz]
+runs = 256
